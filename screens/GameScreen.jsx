@@ -58,7 +58,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
             (direction === "greater" && currentGuess > userNumber)
         ){
             Alert.alert('Dont lie', 'This is wrong..', [
-                {text:'Sorry!', style:'Cancel'}
+                {text:'Sorry!', style:'cancel'}
             ]);
             return;
         }
@@ -84,12 +84,12 @@ const GameScreen = ({ userNumber, onGameOver }) => {
             <View style={styles.buttonsContainer}>
                 <View style={styles.buttonContainer}>
                     <PrimaryButton onPress={nextGuessHandler.bind(this, 'lower')}>
-                      <Ionicons name='md-remove' size={24} color='white'/>
+                      <Ionicons name='remove' size={24} color='white'/>
                     </PrimaryButton>  
                 </View>
                 <View style={styles.buttonContainer}>
                     <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>
-                        <Ionicons name="md-add" size={24} color='white' />
+                        <Ionicons name="add" size={24} color='white' />
                     </PrimaryButton>
                 </View>
             </View>
@@ -103,13 +103,13 @@ const GameScreen = ({ userNumber, onGameOver }) => {
           <View style={styles.buttonsContainerWide}>
               <View style={styles.buttonContainer}>
                   <PrimaryButton onPress={nextGuessHandler.bind(this, 'lower')}>
-                    <Ionicons name='md-remove' size={24} color='white'/>
+                    <Ionicons name='remove' size={24} color='white'/>
                   </PrimaryButton>  
               </View>
               <NumberContainer>{currentGuess}</NumberContainer>
               <View style={styles.buttonContainer}>
                   <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>
-                      <Ionicons name="md-add" size={24} color='white' />
+                      <Ionicons name="add" size={24} color='white' />
                   </PrimaryButton>
               </View>
           </View>

@@ -5,7 +5,7 @@ const GuessLogoItem = ({roundNumber, guess}) => {
     return (
         <View style={styles.listItem}>
             <Text style={styles.itemText}>{roundNumber}</Text>
-            <Text>Oppononte's Guess: {guess}</Text>
+            <Text>Opponent's Guess: {guess}</Text>
         </View>
       );
 }
@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
         width:"100%",
         shadowColor:'black',
         shadowOffset:{width:0, height:0},
-        shadowRadius:3
+        shadowRadius:3,
+        shadowOpacity:0.25,
+        elevation:4
     },
     itemText:{
         fontFamily:'open-sans'

@@ -29,7 +29,7 @@ const GameOverScreen = ({roundsNumber, userNumber, onStartNewGame}) => {
             <View style={styles.screenContainer}>
                 <Title>GameOver!</Title>
                 <View style={styles.imageContainer}>
-                    <Image source={require('../assets/images/success.png')} />
+                    <Image style={styles.image} source={require('../assets/images/success.png')} />
                 </View>
                 <View>
                     <Text style={styles.summaryText}>

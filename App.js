@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
+import { StyleSheet, ImageBackground } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useFonts } from "expo-font";
-import AppLoading from 'expo-app-loading';
+import * as SplashScreen from 'expo-splash-screen';
 
 
 /* --- COMPONENTS --- */
@@ -11,6 +12,8 @@ import GameScreen from './screens/GameScreen';
 import GameOverScreen from './screens/GameOverScreen';
 import Colors from './constants/colors';
 import { StatusBar } from 'expo-status-bar';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
 
@@ -25,8 +28,14 @@ export default function App() {
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
   });
 
+  useEffect(() => {
+    if(fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
   if(!fontsLoaded) {
-    return <AppLoading />
+    return null;
   }
 
 
@@ -64,7 +73,7 @@ export default function App() {
 
 
   return (
-    <>
+    <SafeAreaProvider>
       <StatusBar style='light' />
       <LinearGradient colors={[Colors.primary700,Colors.accentColor]} style={styles.rootScreen}>
         <ImageBackground 
@@ -77,7 +86,7 @@ export default function App() {
           
         </ImageBackground>
       </LinearGradient>
-    </>
+    </SafeAreaProvider>
   );
 }
 
